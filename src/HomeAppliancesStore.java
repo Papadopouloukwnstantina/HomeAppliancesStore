@@ -1,17 +1,80 @@
+
+interface DeviceBasic{
+
+    void PowerOn ();
+    void PowerOff ();
+    int PeriodicMantainance();
+    boolean Status();
+
+    void SetMikos(int Mikos);
+    void SetIpsos(int ipsos);
+    void SetVathos(int vathos);
+    void SetOnomaKataskeuasth(String OnomaKataskeuasth);
+    void SetOnomaSuskeuhs(String OnomaSuskeuhs);
+    void SetTuposSuskeuhs(String TuposSuskeuhs);
+    void SetKatanalwsh(int Katanalwsh);
+    int GetMikos();
+    int GetIpsos();
+    int GetVathos();
+    String GetOnomaKataskeuasth();
+    String GetOnomaSuskeuhs();
+    String GetTuposSuskeush();
+    int GetKatanalwsh();
+    void Stoixeia();
+}
+
+abstract class Device implements DeviceBasic{
+
+    public int Mikos;
+    public int ipsos;
+    public int vathos;
+    public String OnomaKataskeuasth;
+    public String OnomaSuskeuhs;
+    public String TuposSuskeuhs;
+    public int Katanalwsh;
+
+    // Setters
+    public abstract void SetMikos(int Mikos);
+    public abstract void SetIpsos(int ipsos);
+    public abstract void SetVathos(int vathos);
+    public abstract void SetOnomaKataskeuasth(String OnomaKataskeuasth);
+    public abstract void SetOnomaSuskeuhs(String OnomaSuskeuhs);
+    public abstract void SetTuposSuskeuhs(String TuposSuskeuhs);
+    public abstract void SetKatanalwsh(int Katanalwsh);
+
+    public abstract int GetMikos();
+    public abstract int GetIpsos();
+    public abstract int GetVathos();
+    public abstract String GetOnomaKataskeuasth();
+    public abstract String GetOnomaSuskeuhs();
+    public abstract String GetTuposSuskeush();
+    public abstract int GetKatanalwsh();
+
+    public static boolean status;
+
+    public abstract void Stoixeia();
+}
+
 public class HomeAppliancesStore {
     public static void main(String[] args) {
 
-        Fridge Fridge = new Fridge("TEST" , "HTM2" , "Fridge" , "White" , 500 , 500 , 500 , 250 , 250 , 100 , 50 , 3);
-        WashineMachine Machine = new WashineMachine("TEST" , "HDMI" , "WashineMashine" , "White" , 500 , 500 , 200 , 250 , 50 , 90 , 30 ,35);
-        Oven Oven = new Oven("TEST" , "GDMI" , "Oven" , "Black" , 500 , 500 , 500 , 200 , 150 , 20 , 30 , 4);
-        AirCondition Air = new AirCondition("TEST" , "HDMI" , "AirCondition" , "Orange" , 500 , 250 , 300 , 500 , 200 , 30 , 40 , 20);
-        WashineMachine Machine2 = new WashineMachine("TEST" , "HDMI" , "WashineMashine" , "White" , 500 , 500 , 200 , 250 , 50 , 90 , 30 ,35);
-        Oven Oven2 = new Oven("TEST" , "GDMI" , "Oven" , "Black" , 500 , 500 , 500 , 200 , 150 , 20 , 30 , 4);
+    DeviceStatus();
 
-        System.out.println(Fridge.FridgeCounter());
-        System.out.println(Machine.MachineCounter());
-        System.out.println(Oven.OvenCounter());
-        System.out.println(Air.AirCounter());
+    }
+
+    public static void DeviceStatus(){
+
+     Device Div = new Fridge("TEST" , "TEST" , "Fridge" , 2 , 3 , 4 , 5);
+
+     if(Div instanceof Fridge){
+
+         Fridge fridge = (Fridge) Div;
+
+         System.out.printf("Device Status: ");
+         if(fridge.Status() == true) System.out.printf("On\n"); else System.out.printf("Off\n");
+
+
+     }
     }
 }
 
